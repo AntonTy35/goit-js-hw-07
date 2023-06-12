@@ -28,9 +28,17 @@ galleryEls.addEventListener("click", onClick);
 function onClick(event) {
   event.preventDefault();
 
-  const instance = basicLightbox.create(`
-  <img src="${event.target.dataset.source}">
-  `);
+  const imageWindow = basicLightbox.create(`
+    <img src="${event.target.dataset.source}">
+    `);
 
-  instance.show();
+  imageWindow.show();
+
+  //   galleryEls.addEventListener("keydown", onPressEscape);
+
+  //   function onPressEscape(evt) {
+  //     if (evt.key === "Escape") {
+  //         imageWindow.;
+  //     }
+  //   }
 }
