@@ -28,17 +28,21 @@ galleryEls.addEventListener("click", onClick);
 function onClick(event) {
   event.preventDefault();
 
+  if (event.target.nodeName !== "IMG") {
+    return;
+  }
+
   const imageWindow = basicLightbox.create(`
     <img src="${event.target.dataset.source}">
     `);
 
   imageWindow.show();
 
-  //   galleryEls.addEventListener("keydown", onPressEscape);
+  galleryEls.addEventListener("keydown", onPressEscape);
 
-  //   function onPressEscape(evt) {
-  //     if (evt.key === "Escape") {
-  //         imageWindow.;
-  //     }
-  //   }
+  function onPressEscape(evt) {
+    if (evt.key === "Escape") {
+      imageWindow.close();
+    }
+  }
 }
